@@ -3,89 +3,653 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FD CARTALLA SERVICES LLC</title>
+    <title>UNHURRIED PRODUCTION, LLC | Motion Picture & Video Production</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
     <style>
-        body {
+        /* Cinematic Velvet & Warm Gold Design System */
+        :root {
+            --bg-deep: #0b0c10;
+            --bg-card: #151821;
+            --bg-card-hover: #1f2430;
+            --gold-primary: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.15);
+            --gold-dark: #aa8c2c;
+            --text-light: #ffffff;
+            --text-muted: #a0a5b5;
+            --border-gold: rgba(212, 175, 55, 0.3);
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: #f5f5f5;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            scroll-behavior: smooth;
         }
-        .hero {
-            background: linear-gradient(135deg, #004d7a, #008793, #00bf72);
-            color: #fff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .content {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #006064;
-            margin-top: 30px;
-        }
-        p, li {
-            font-size: 1.1em;
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-muted);
+            font-family: var(--font-family);
             line-height: 1.6;
         }
-        ul {
-            padding-left: 20px;
-            list-style-type: disc;
+
+        /* Top Bar */
+        .top-bar {
+            background: #050608;
+            color: var(--gold-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 0.6rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-gold);
         }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #004d7a;
+
+        /* Fixed Navigation Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 12, 16, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--gold-primary);
+            padding: 1.2rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.2rem;
+            font-weight: 900;
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+        }
+
+        .brand-logo i {
+            color: var(--gold-primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold-primary);
+        }
+
+        .cta-btn {
+            background: var(--gold-primary);
+            color: #0b0c10;
+            padding: 0.65rem 1.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Container Layout */
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Split Section */
+        .hero-section {
+            padding: 5rem 0;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 900;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 span {
+            color: var(--gold-primary);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-gold);
+        }
+
+        .stat-box h4 {
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            font-weight: 900;
+        }
+
+        .stat-box p {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .hero-media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .hero-media-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-gold);
+        }
+
+        .hero-media-grid img:first-child {
+            grid-column: span 2;
+            height: 280px;
+        }
+
+        /* Section Headers */
+        .section-heading {
+            margin: 6rem 0 3rem 0;
+            border-left: 4px solid var(--gold-primary);
+            padding-left: 1.25rem;
+        }
+
+        .section-heading h2 {
+            font-size: 2.4rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .section-heading p {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold-primary);
+            background: var(--bg-card-hover);
+            transform: translateY(-5px);
+        }
+
+        .icon-wrapper {
+            width: 52px;
+            height: 52px;
+            background: var(--gold-glow);
+            color: var(--gold-primary);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+        }
+
+        /* Showcase Block */
+        .showcase-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 3.5rem;
+            border-radius: 8px;
+            margin: 6rem 0;
+            align-items: center;
+        }
+
+        .showcase-block img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .showcase-info h3 {
+            font-size: 2rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .checklist li i {
+            color: var(--gold-primary);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            padding: 4rem;
+            border-radius: 8px;
+            margin-bottom: 6rem;
+        }
+
+        .contact-details h2 {
+            font-size: 2.2rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 2rem;
+            align-items: flex-start;
+        }
+
+        .info-row i {
+            color: var(--gold-primary);
+            background: var(--gold-glow);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .info-row label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .info-row strong {
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-double {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            background: var(--bg-deep);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 1.1rem;
             color: #fff;
-            margin-top: auto;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        .submit-btn {
+            background: var(--gold-primary);
+            color: #0b0c10;
+            border: none;
+            padding: 1.2rem;
+            border-radius: 4px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold-dark);
+        }
+
+        /* Dynamic Privacy Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 3rem;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .modal-content h3 {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content h4 {
+            color: var(--gold-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        footer {
+            background: #050608;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-gold);
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--gold-primary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-section, .showcase-block, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-double {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>FD CARTALLA SERVICES LLC</h1>
-        <p>Powering your spaces with excellence—expert electrical services for residential, commercial, and industrial needs across Miami and beyond.</p>
+
+    <div class="top-bar">
+        <div>UNHURRIED PRODUCTION, LLC — Film & Media Production</div>
+        <div>Portland, OR Studio Hub</div>
     </div>
 
-    <div class="content">
-        <h2>About Us</h2>
-        <p>FD CARTALLA SERVICES LLC is a trusted electrical service provider based in Miami, Florida. We specialize in a wide range of electrical solutions, offering high-quality installation, maintenance, and repair services for both residential and commercial properties. Our team of certified electricians ensures safety, efficiency, and compliance with all local regulations, delivering reliable results every time.</p>
+    <header>
+        <div class="brand-logo">
+            <i data-lucide="clapperboard"></i> UNHURRIED PRODUCTION
+        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#work">Capabilities</a>
+            <a href="#contact" class="cta-btn">Start Project</a>
+        </nav>
+    </header>
 
-        <h2>Our Services</h2>
-        <ul>
-            <li>Residential & Commercial Electrical Installations</li>
-            <li>Lighting Design & Installation</li>
-            <li>Electrical Panel Upgrades & Repairs</li>
-            <li>Energy Efficiency Solutions</li>
-            <li>Emergency Electrical Services</li>
-        </ul>
+    <div class="wrapper">
+        <!-- Hero Section -->
+        <section id="about" class="hero-section">
+            <div class="hero-text">
+                <h1>Crafting <span>Motion Picture & Sound</span> Experiences</h1>
+                <p>Specialized film production, video creation, sound recording, and media distribution dedicated to methodical, high-quality cinematic storytelling.</p>
+                <a href="#contact" class="cta-btn" style="padding: 1rem 2rem; display: inline-block;">Book Production Consultation</a>
 
-        <h2>Contact Us</h2>
-        <p>Address: 2476 SW 18th St, Miami, FL 33145, USA</p>
-        <p>Email: <a href="mailto:cartalla@fdcartallaservices.shop">cartalla@fdcartallaservices.shop</a></p>
-        <p>Phone: +1 (305) 930-3861</p>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <h4>Portland, OR</h4>
+                        <p>Studio Location</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>97216</h4>
+                        <p>Postal Code</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>Zachary Kemphues</h4>
+                        <p>Key Principal</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-media-grid">
+                <img src="https://images.unsplash.com/photo-1579632652768-6cb9dcf85912?auto=format&fit=crop&w=800&q=80" alt="Professional movie camera set up on set with cinematic lighting">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=600&q=80" alt="Audio sound recording console with channel sliders and monitors">
+                <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=600&q=80" alt="Video editing suite displaying video tracks and color grading timeline">
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <div class="section-heading">
+                <p>Production Spectrum</p>
+                <h2>Creative Capabilities</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="video" size="28"></i>
+                    </div>
+                    <h3>Motion Picture Production</h3>
+                    <p>End-to-end cinematography, film directing, set management, and high-definition video capture for feature and short formats.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="mic" size="28"></i>
+                    </div>
+                    <h3>Sound Recording & Design</h3>
+                    <p>Professional audio capture, sound effect design, studio vocal recording, mixing, and post-production audio mastering.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-wrapper">
+                        <i data-lucide="film" size="28"></i>
+                    </div>
+                    <h3>Post-Production & Editing</h3>
+                    <p>Precision color grading, digital tape distribution, composite editing, and multi-platform media rendering.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Showcase -->
+        <section id="work" class="showcase-block">
+            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80" alt="Film crew filming on a professional set location">
+            <div class="showcase-info">
+                <h3>Thoughtful, Deliberate Storytelling</h3>
+                <p>At Unhurried Production, we prioritize detail and intentional creative vision across every stage of the film and sound creation process.</p>
+                
+                <ul class="checklist">
+                    <li><i data-lucide="check-circle-2"></i> Supervised under key principal leadership (Zachary Kemphues)</li>
+                    <li><i data-lucide="check-circle-2"></i> Professional 4K/8K recording and cinema camera packages</li>
+                    <li><i data-lucide="check-circle-2"></i> Tailored media streaming and tape distribution solutions</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-grid">
+                <div class="contact-details">
+                    <h2>Connect With Us</h2>
+                    <p>Get in touch with our team to discuss project scopes, creative pitch decks, or production scheduling.</p>
+
+                    <div class="info-row">
+                        <i data-lucide="mail"></i>
+                        <div>
+                            <label>Direct Email</label>
+                            <strong>contact@unhurriedproduction.org</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <i data-lucide="phone"></i>
+                        <div>
+                            <label>Studio Line</label>
+                            <strong>+1 234 388 6544</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <label>Studio Address</label>
+                            <strong>10505 E Burnside St APT 3, Portland, OR, 97216-2761 United States</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="event.preventDefault();">
+                    <div class="form-double">
+                        <input type="text" placeholder="Full Name" required>
+                        <input type="text" placeholder="Phone Number" required>
+                    </div>
+                    <input type="email" placeholder="Email Address" required>
+                    <textarea rows="5" placeholder="Tell us about your film, sound recording, or production project..." required></textarea>
+                    <button type="submit" class="submit-btn">Submit Project Brief</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Dynamic Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn" onclick="togglePrivacyModal()"><i data-lucide="x" size="24"></i></button>
+            <h3>Privacy Policy</h3>
+            
+            <h4>1. Overview</h4>
+            <p>UNHURRIED PRODUCTION, LLC respects your privacy. This policy outlines how we handle information collected via our web presence.</p>
+            
+            <h4>2. Data Collection & Usage</h4>
+            <p>We only collect personal information voluntarily submitted through our project contact forms (such as name, email address, and phone number) solely for project evaluations and communications.</p>
+            
+            <h4>3. Information Protection</h4>
+            <p>Your details are never sold, traded, or shared with third parties. We employ appropriate technical safeguards to protect your submissions.</p>
+
+            <h4>4. Contact Details</h4>
+            <p>For questions regarding our privacy practices, contact us at contact@unhurriedproduction.org.</p>
+        </div>
     </div>
 
     <footer>
-        &copy; 2025 FD CARTALLA SERVICES LLC. All rights reserved.
+        <div class="wrapper">
+            <p>&copy; UNHURRIED PRODUCTION, LLC. All rights reserved. Registered in Portland, Oregon, US.</p>
+            <div class="footer-links">
+                <a onclick="togglePrivacyModal()">Privacy Policy</a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function togglePrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
